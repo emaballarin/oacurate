@@ -1,0 +1,8 @@
+{
+ "_synthetic": "shape follows the documented 429 budget body (retryAfter, dailyRemainingUsd, creditsRequired)",
+ "error": "Rate limit exceeded",
+ "message": "Daily budget exhausted",
+ "retryAfter": 36000,
+ "dailyRemainingUsd": 0,
+ "creditsRequired": 10
+}

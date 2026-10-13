@@ -1,0 +1,948 @@
+{
+ "id": "https://openalex.org/W2146272590",
+ "doi": "https://doi.org/10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+ "title": "Two-sided confidence intervals for the single proportion: comparison of seven methods",
+ "display_name": "Two-sided confidence intervals for the single proportion: comparison of seven methods",
+ "publication_year": 1998,
+ "publication_date": "1998-04-30",
+ "ids": {
+  "openalex": "https://openalex.org/W2146272590",
+  "doi": "https://doi.org/10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+  "mag": "2146272590",
+  "pmid": "https://pubmed.ncbi.nlm.nih.gov/9595616"
+ },
+ "language": "en",
+ "primary_location": {
+  "id": "doi:10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+  "doi": "https://doi.org/10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+  "is_oa": false,
+  "landing_page_url": "https://doi.org/10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+  "pdf_url": null,
+  "source": {
+   "id": "https://openalex.org/S55189604",
+   "display_name": "Statistics in Medicine",
+   "issn_l": "0277-6715",
+   "issn": [
+    "0277-6715",
+    "1097-0258"
+   ],
+   "is_oa": false,
+   "is_in_doaj": false,
+   "is_core": true,
+   "listed_in": [
+    "abdc-a",
+    "anvur-class-a",
+    "anvur-scientific",
+    "cwts-core",
+    "dongbi-b",
+    "doyens",
+    "jufo-2",
+    "ki-jl-2",
+    "medline",
+    "norway-2",
+    "poland-100",
+    "russia-white-list-1",
+    "vabb-shw"
+   ],
+   "host_organization": "https://openalex.org/P4310320595",
+   "host_organization_name": "Wiley",
+   "host_organization_lineage": [
+    "https://openalex.org/P4310320595"
+   ],
+   "host_organization_lineage_names": [
+    "Wiley"
+   ],
+   "type": "journal"
+  },
+  "license": null,
+  "license_id": null,
+  "version": "publishedVersion",
+  "is_accepted": true,
+  "is_published": true,
+  "raw_source_name": "Statistics in Medicine",
+  "raw_type": "journal-article"
+ },
+ "volume": null,
+ "type": "article",
+ "indexed_in": [
+  "crossref",
+  "pubmed"
+ ],
+ "open_access": {
+  "is_oa": false,
+  "oa_status": "closed",
+  "oa_url": null,
+  "any_repository_has_fulltext": false
+ },
+ "authorships": [
+  {
+   "author_position": "first",
+   "author": {
+    "id": "https://openalex.org/A5064669357",
+    "display_name": "Robert Gordon Newcombe",
+    "orcid": "https://orcid.org/0000-0003-4400-8867",
+    "observed_orcids": [
+     "https://orcid.org/0000-0003-4400-8867"
+    ]
+   },
+   "institutions": [
+    {
+     "id": "https://openalex.org/I79510175",
+     "display_name": "Cardiff University",
+     "ror": "https://ror.org/03kk7td41",
+     "country_code": "GB",
+     "type": "education",
+     "lineage": [
+      "https://openalex.org/I79510175"
+     ]
+    },
+    {
+     "id": "https://openalex.org/I97429440",
+     "display_name": "University of Wales",
+     "ror": "https://ror.org/01se4f844",
+     "country_code": "GB",
+     "type": "education",
+     "lineage": [
+      "https://openalex.org/I97429440"
+     ]
+    }
+   ],
+   "countries": [
+    "GB"
+   ],
+   "is_corresponding": true,
+   "raw_author_name": "Robert G. Newcombe",
+   "raw_affiliation_strings": [
+    "University of Wales College of Medicine, Heath Park, Cardiff, U.K",
+    "University of Wales, College of Medicine, Heath Park, Cardiff, U.K"
+   ],
+   "raw_orcid": null,
+   "affiliations": [
+    {
+     "raw_affiliation_string": "University of Wales College of Medicine, Heath Park, Cardiff, U.K",
+     "institution_ids": [
+      "https://openalex.org/I97429440"
+     ]
+    },
+    {
+     "raw_affiliation_string": "University of Wales, College of Medicine, Heath Park, Cardiff, U.K",
+     "institution_ids": [
+      "https://openalex.org/I79510175",
+      "https://openalex.org/I97429440"
+     ]
+    }
+   ]
+  }
+ ],
+ "institutions": [],
+ "countries_distinct_count": 1,
+ "institutions_distinct_count": 2,
+ "corresponding_author_ids": [
+  "https://openalex.org/A5064669357"
+ ],
+ "corresponding_institution_ids": [
+  "https://openalex.org/I79510175",
+  "https://openalex.org/I97429440"
+ ],
+ "apc_list": {
+  "value": 5450,
+  "currency": "USD",
+  "value_usd": 5450
+ },
+ "apc_paid": null,
+ "fwci": 27.1853,
+ "has_fulltext": false,
+ "cited_by_count": 5105,
+ "citation_normalized_percentile": {
+  "value": 0.99722222,
+  "is_in_top_1_percent": true,
+  "is_in_top_10_percent": true
+ },
+ "cited_by_percentile_year": {
+  "min": 99,
+  "max": 100
+ },
+ "biblio": {
+  "volume": "17",
+  "issue": "8",
+  "first_page": "857",
+  "last_page": "872"
+ },
+ "is_retracted": false,
+ "is_paratext": false,
+ "is_xpac": false,
+ "primary_topic": {
+  "id": "https://openalex.org/T13500",
+  "display_name": "Probability and Statistical Research",
+  "score": 0.6532999873161316,
+  "subfield": {
+   "id": "https://openalex.org/subfields/2613",
+   "display_name": "Statistics and Probability"
+  },
+  "field": {
+   "id": "https://openalex.org/fields/26",
+   "display_name": "Mathematics"
+  },
+  "domain": {
+   "id": "https://openalex.org/domains/3",
+   "display_name": "Physical Sciences"
+  }
+ },
+ "topics": [
+  {
+   "id": "https://openalex.org/T13500",
+   "display_name": "Probability and Statistical Research",
+   "score": 0.6532999873161316,
+   "subfield": {
+    "id": "https://openalex.org/subfields/2613",
+    "display_name": "Statistics and Probability"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/26",
+    "display_name": "Mathematics"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/3",
+    "display_name": "Physical Sciences"
+   }
+  },
+  {
+   "id": "https://openalex.org/T14374",
+   "display_name": "Statistical Methods in Epidemiology",
+   "score": 0.13120000064373016,
+   "subfield": {
+    "id": "https://openalex.org/subfields/2613",
+    "display_name": "Statistics and Probability"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/26",
+    "display_name": "Mathematics"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/3",
+    "display_name": "Physical Sciences"
+   }
+  },
+  {
+   "id": "https://openalex.org/T11235",
+   "display_name": "Statistical Methods in Clinical Trials",
+   "score": 0.09130000323057175,
+   "subfield": {
+    "id": "https://openalex.org/subfields/2613",
+    "display_name": "Statistics and Probability"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/26",
+    "display_name": "Mathematics"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/3",
+    "display_name": "Physical Sciences"
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "https://openalex.org/keywords/two-sided-confidence-intervals",
+   "display_name": "two-sided confidence intervals",
+   "score": 0.9319999814033508
+  },
+  {
+   "id": "https://openalex.org/keywords/coverage-probability",
+   "display_name": "coverage probability",
+   "score": 0.7609999775886536
+  },
+  {
+   "id": "https://openalex.org/keywords/interval-width",
+   "display_name": "interval width",
+   "score": 0.5099999904632568
+  },
+  {
+   "id": "https://openalex.org/keywords/scoring-methods",
+   "display_name": "scoring methods",
+   "score": 0.6359999775886536
+  },
+  {
+   "id": "https://openalex.org/keywords/method-comparison",
+   "display_name": "method comparison",
+   "score": 0.5960000157356262
+  }
+ ],
+ "concepts": [
+  {
+   "id": "https://openalex.org/C105795698",
+   "wikidata": "https://www.wikidata.org/wiki/Q12483",
+   "display_name": "Statistics",
+   "level": 1,
+   "score": 0.7537328004837036
+  },
+  {
+   "id": "https://openalex.org/C44249647",
+   "wikidata": "https://www.wikidata.org/wiki/Q208498",
+   "display_name": "Confidence interval",
+   "level": 2,
+   "score": 0.7469393014907837
+  },
+  {
+   "id": "https://openalex.org/C33923547",
+   "wikidata": "https://www.wikidata.org/wiki/Q395",
+   "display_name": "Mathematics",
+   "level": 0,
+   "score": 0.5975677371025085
+  },
+  {
+   "id": "https://openalex.org/C2776292839",
+   "wikidata": "https://www.wikidata.org/wiki/Q5179217",
+   "display_name": "Coverage probability",
+   "level": 3,
+   "score": 0.5892850160598755
+  },
+  {
+   "id": "https://openalex.org/C2779545769",
+   "wikidata": "https://www.wikidata.org/wiki/Q5135364",
+   "display_name": "Closeness",
+   "level": 2,
+   "score": 0.5540477633476257
+  },
+  {
+   "id": "https://openalex.org/C2778067643",
+   "wikidata": "https://www.wikidata.org/wiki/Q166507",
+   "display_name": "Interval (graph theory)",
+   "level": 2,
+   "score": 0.5365313291549683
+  },
+  {
+   "id": "https://openalex.org/C154606282",
+   "wikidata": "https://www.wikidata.org/wiki/Q7048579",
+   "display_name": "Nominal level",
+   "level": 3,
+   "score": 0.519668698310852
+  },
+  {
+   "id": "https://openalex.org/C66520545",
+   "wikidata": "https://www.wikidata.org/wiki/Q7353538",
+   "display_name": "Robust confidence intervals",
+   "level": 3,
+   "score": 0.4957526624202728
+  },
+  {
+   "id": "https://openalex.org/C121117317",
+   "wikidata": "https://www.wikidata.org/wiki/Q4439221",
+   "display_name": "Credible interval",
+   "level": 3,
+   "score": 0.4116579592227936
+  },
+  {
+   "id": "https://openalex.org/C114614502",
+   "wikidata": "https://www.wikidata.org/wiki/Q76592",
+   "display_name": "Combinatorics",
+   "level": 1,
+   "score": 0.0772315263748169
+  },
+  {
+   "id": "https://openalex.org/C134306372",
+   "wikidata": "https://www.wikidata.org/wiki/Q7754",
+   "display_name": "Mathematical analysis",
+   "level": 1,
+   "score": 0.0
+  }
+ ],
+ "mesh": [
+  {
+   "descriptor_ui": "D011336",
+   "descriptor_name": "Probability",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D011336",
+   "descriptor_name": "Probability",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D011336",
+   "descriptor_name": "Probability",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D013223",
+   "descriptor_name": "Statistics as Topic",
+   "qualifier_ui": "Q000379",
+   "qualifier_name": "methods",
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D013223",
+   "descriptor_name": "Statistics as Topic",
+   "qualifier_ui": "Q000379",
+   "qualifier_name": "methods",
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D013223",
+   "descriptor_name": "Statistics as Topic",
+   "qualifier_ui": "Q000379",
+   "qualifier_name": "methods",
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D016001",
+   "descriptor_name": "Confidence Intervals",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": true
+  },
+  {
+   "descriptor_ui": "D016001",
+   "descriptor_name": "Confidence Intervals",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": true
+  },
+  {
+   "descriptor_ui": "D016001",
+   "descriptor_name": "Confidence Intervals",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": true
+  },
+  {
+   "descriptor_ui": "D016013",
+   "descriptor_name": "Likelihood Functions",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D016013",
+   "descriptor_name": "Likelihood Functions",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": false
+  },
+  {
+   "descriptor_ui": "D016013",
+   "descriptor_name": "Likelihood Functions",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": false
+  }
+ ],
+ "locations_count": 2,
+ "locations": [
+  {
+   "id": "doi:10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+   "doi": "https://doi.org/10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+   "is_oa": false,
+   "landing_page_url": "https://doi.org/10.1002/(sici)1097-0258(19980430)17:8<857::aid-sim777>3.0.co;2-e",
+   "pdf_url": null,
+   "source": {
+    "id": "https://openalex.org/S55189604",
+    "display_name": "Statistics in Medicine",
+    "issn_l": "0277-6715",
+    "issn": [
+     "0277-6715",
+     "1097-0258"
+    ],
+    "is_oa": false,
+    "is_in_doaj": false,
+    "is_core": true,
+    "listed_in": [
+     "abdc-a",
+     "anvur-class-a",
+     "anvur-scientific",
+     "cwts-core",
+     "dongbi-b",
+     "doyens",
+     "jufo-2",
+     "ki-jl-2",
+     "medline",
+     "norway-2",
+     "poland-100",
+     "russia-white-list-1",
+     "vabb-shw"
+    ],
+    "host_organization": "https://openalex.org/P4310320595",
+    "host_organization_name": "Wiley",
+    "host_organization_lineage": [
+     "https://openalex.org/P4310320595"
+    ],
+    "host_organization_lineage_names": [
+     "Wiley"
+    ],
+    "type": "journal"
+   },
+   "license": null,
+   "license_id": null,
+   "version": "publishedVersion",
+   "is_accepted": true,
+   "is_published": true,
+   "raw_source_name": "Statistics in Medicine",
+   "raw_type": "journal-article"
+  },
+  {
+   "id": "pmid:9595616",
+   "doi": null,
+   "is_oa": false,
+   "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/9595616",
+   "pdf_url": null,
+   "source": {
+    "id": "https://openalex.org/S4306525036",
+    "display_name": "PubMed",
+    "issn_l": null,
+    "issn": null,
+    "is_oa": false,
+    "is_in_doaj": false,
+    "is_core": false,
+    "listed_in": [],
+    "host_organization": "https://openalex.org/I1299303238",
+    "host_organization_name": "National Institutes of Health",
+    "host_organization_lineage": [
+     "https://openalex.org/I1299303238"
+    ],
+    "host_organization_lineage_names": [],
+    "type": "repository"
+   },
+   "license": null,
+   "license_id": null,
+   "version": "publishedVersion",
+   "is_accepted": true,
+   "is_published": true,
+   "raw_source_name": "Statistics in medicine",
+   "raw_type": "Comparative Study"
+  }
+ ],
+ "best_oa_location": null,
+ "sustainable_development_goals": [],
+ "sustainable_development_goals_aurora": [
+  {
+   "display_name": "No poverty",
+   "id": "https://metadata.un.org/sdg/1",
+   "score": 0.7099999785423279
+  }
+ ],
+ "study_designs": [],
+ "awards": [],
+ "funders": [],
+ "has_content": {
+  "pdf": false,
+  "grobid_xml": false
+ },
+ "content_urls": null,
+ "referenced_works_count": 27,
+ "referenced_works": [
+  "https://openalex.org/W134624138",
+  "https://openalex.org/W1967573895",
+  "https://openalex.org/W1971172649",
+  "https://openalex.org/W1981650958",
+  "https://openalex.org/W1986157381",
+  "https://openalex.org/W1995155452",
+  "https://openalex.org/W2007145472",
+  "https://openalex.org/W2017063346",
+  "https://openalex.org/W2020018978",
+  "https://openalex.org/W2039159818",
+  "https://openalex.org/W2056445994",
+  "https://openalex.org/W2056509354",
+  "https://openalex.org/W2062821655",
+  "https://openalex.org/W2089159416",
+  "https://openalex.org/W2096913021",
+  "https://openalex.org/W2110093215",
+  "https://openalex.org/W2118202495",
+  "https://openalex.org/W2122633654",
+  "https://openalex.org/W2130057687",
+  "https://openalex.org/W2137591261",
+  "https://openalex.org/W2144661279",
+  "https://openalex.org/W2150290224",
+  "https://openalex.org/W2169775947",
+  "https://openalex.org/W2320991853",
+  "https://openalex.org/W2797597138",
+  "https://openalex.org/W2977721658",
+  "https://openalex.org/W3203633735"
+ ],
+ "related_works": [
+  "https://openalex.org/W4221078923",
+  "https://openalex.org/W2162631808",
+  "https://openalex.org/W2160968851",
+  "https://openalex.org/W4382516221",
+  "https://openalex.org/W1978871538",
+  "https://openalex.org/W2123327042",
+  "https://openalex.org/W3173705951",
+  "https://openalex.org/W2081844327",
+  "https://openalex.org/W4385453365",
+  "https://openalex.org/W2949173688"
+ ],
+ "abstract_inverted_index": {
+  "Simple": [
+   0
+  ],
+  "interval": [
+   1,
+   52
+  ],
+  "estimate": [
+   2
+  ],
+  "methods": [
+   3,
+   23,
+   77,
+   98,
+   106
+  ],
+  "for": [
+   4,
+   78,
+   101
+  ],
+  "proportions": [
+   5
+  ],
+  "exhibit": [
+   6
+  ],
+  "poor": [
+   7
+  ],
+  "coverage": [
+   8,
+   29,
+   119
+  ],
+  "and": [
+   9,
+   66,
+   94
+  ],
+  "can": [
+   10
+  ],
+  "produce": [
+   11
+  ],
+  "evidently": [
+   12
+  ],
+  "inappropriate": [
+   13
+  ],
+  "intervals.": [
+   14
+  ],
+  "Criteria": [
+   15
+  ],
+  "appropriate": [
+   16
+  ],
+  "to": [
+   17,
+   31,
+   41,
+   111
+  ],
+  "the": [
+   18,
+   27,
+   46,
+   49,
+   79,
+   95,
+   114,
+   117,
+   121
+  ],
+  "evaluation": [
+   19
+  ],
+  "of": [
+   20,
+   26,
+   48,
+   55,
+   68
+  ],
+  "various": [
+   21
+  ],
+  "proposed": [
+   22
+  ],
+  "include:": [
+   24
+  ],
+  "closeness": [
+   25
+  ],
+  "achieved": [
+   28
+  ],
+  "probability": [
+   30
+  ],
+  "its": [
+   32
+  ],
+  "nominal": [
+   33,
+   122
+  ],
+  "value;": [
+   34
+  ],
+  "whether": [
+   35,
+   70
+  ],
+  "intervals": [
+   36
+  ],
+  "are": [
+   37,
+   82,
+   99,
+   107
+  ],
+  "located": [
+   38
+  ],
+  "too": [
+   39,
+   43
+  ],
+  "close": [
+   40
+  ],
+  "or": [
+   42,
+   62,
+   74,
+   116
+  ],
+  "distant": [
+   44
+  ],
+  "from": [
+   45
+  ],
+  "middle": [
+   47
+  ],
+  "scale;": [
+   50
+  ],
+  "expected": [
+   51
+  ],
+  "width;": [
+   53
+  ],
+  "avoidance": [
+   54
+  ],
+  "aberrations": [
+   56
+  ],
+  "such": [
+   57
+  ],
+  "as": [
+   58
+  ],
+  "limits": [
+   59
+  ],
+  "outside": [
+   60
+  ],
+  "[0,1]": [
+   61
+  ],
+  "zero": [
+   63
+  ],
+  "width": [
+   64
+  ],
+  "intervals;": [
+   65
+  ],
+  "ease": [
+   67
+  ],
+  "use,": [
+   69
+  ],
+  "by": [
+   71
+  ],
+  "tables,": [
+   72
+  ],
+  "software": [
+   73
+  ],
+  "formulae.": [
+   75
+  ],
+  "Seven": [
+   76
+  ],
+  "single": [
+   80
+  ],
+  "proportion": [
+   81
+  ],
+  "evaluated": [
+   83
+  ],
+  "on": [
+   84,
+   91
+  ],
+  "96,000": [
+   85
+  ],
+  "parameter": [
+   86
+  ],
+  "space": [
+   87
+  ],
+  "points.": [
+   88
+  ],
+  "Intervals": [
+   89
+  ],
+  "based": [
+   90
+  ],
+  "tail": [
+   92
+  ],
+  "areas": [
+   93
+  ],
+  "simpler": [
+   96
+  ],
+  "score": [
+   97
+  ],
+  "recommended": [
+   100
+  ],
+  "use.": [
+   102
+  ],
+  "In": [
+   103
+  ],
+  "each": [
+   104
+  ],
+  "case,": [
+   105
+  ],
+  "available": [
+   108
+  ],
+  "that": [
+   109
+  ],
+  "aim": [
+   110
+  ],
+  "align": [
+   112
+  ],
+  "either": [
+   113
+  ],
+  "minimum": [
+   115
+  ],
+  "mean": [
+   118
+  ],
+  "with": [
+   120
+  ],
+  "1": [
+   123
+  ],
+  "-alpha.": [
+   124
+  ]
+ },
+ "counts_by_year": [
+  {
+   "year": 2026,
+   "cited_by_count": 185
+  },
+  {
+   "year": 2025,
+   "cited_by_count": 192
+  },
+  {
+   "year": 2024,
+   "cited_by_count": 213
+  },
+  {
+   "year": 2023,
+   "cited_by_count": 235
+  },
+  {
+   "year": 2022,
+   "cited_by_count": 225
+  },
+  {
+   "year": 2021,
+   "cited_by_count": 288
+  },
+  {
+   "year": 2020,
+   "cited_by_count": 281
+  },
+  {
+   "year": 2019,
+   "cited_by_count": 268
+  },
+  {
+   "year": 2018,
+   "cited_by_count": 262
+  },
+  {
+   "year": 2017,
+   "cited_by_count": 251
+  },
+  {
+   "year": 2016,
+   "cited_by_count": 279
+  },
+  {
+   "year": 2015,
+   "cited_by_count": 286
+  },
+  {
+   "year": 2014,
+   "cited_by_count": 250
+  },
+  {
+   "year": 2013,
+   "cited_by_count": 278
+  },
+  {
+   "year": 2012,
+   "cited_by_count": 265
+  }
+ ],
+ "updated_date": "2026-10-13T10:08:12.033832",
+ "created_date": "2025-10-10T00:00:00"
+}

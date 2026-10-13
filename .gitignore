@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local secrets
+.env.local
+
+# Local working files (agent notes, editor-local settings)
+.ws/
+.claude/settings.local.json
