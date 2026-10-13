@@ -214,3 +214,35 @@ def test_a_429_without_retry_after_waits_the_body_retry_after(make_client):
     client, rec = make_client(lambda r: next(answers))
     assert client.get_work("W1") == {"id": "x"}
     assert rec.sleeps == [7.0]
+
+
+def test_the_recorded_live_replies_parse_as_created():
+    single = load("live", "post_single_201")
+    [one] = parse_post_response(201, single["body"], [single["payload"]], single=True)
+    assert (one.outcome, one.curation_id) == ("created", "cur-hCE9CwDwyTFu")
+    batch = load("live", "post_207_item")
+    [item] = parse_post_response(207, [batch["item"]], [batch["payload"]], single=False)
+    assert (item.outcome, item.http_status, item.curation_id) == (
+        "created",
+        201,
+        "cur-YNLF3QKkzQEV",
+    )
+
+
+def test_a_returned_row_created_before_the_submission_is_a_duplicate():
+    from datetime import UTC, datetime
+
+    single = load("live", "post_single_201")  # row created 2026-10-13T15:00:51.837352Z
+    batch = load("live", "post_207_item")  # row created 2026-10-13T15:00:52.354253Z
+    later = datetime(2026, 10, 13, 15, 8, tzinfo=UTC)
+    same_moment = datetime(2026, 10, 13, 15, 0, 51, tzinfo=UTC)
+    [old] = parse_post_response(
+        201, single["body"], [single["payload"]], single=True, sent_at=later
+    )
+    [new] = parse_post_response(
+        201, single["body"], [single["payload"]], single=True, sent_at=same_moment
+    )
+    [old_item] = parse_post_response(
+        207, [batch["item"]], [batch["payload"]], single=False, sent_at=later
+    )
+    assert (old.outcome, new.outcome, old_item.outcome) == ("duplicate", "created", "duplicate")

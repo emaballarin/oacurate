@@ -189,3 +189,71 @@ def test_fetch_curations_follows_the_recorded_paging_envelope():
     assert [c["page"] for c in calls] == [1, 2]
     assert fetch_curations(lambda **p: envelope) == []
     assert fetch_curations(lambda **p: {"unexpected": True}) is None
+
+
+def test_a_recorded_get_curations_page_reconciles_with_its_journal_entries():
+    from conftest import load
+
+    from oacurate.journal import fetch_curations
+
+    page = load("live", "get_curations_two_pending")["body"]
+    records = fetch_curations(lambda **p: page)
+    entries = [entry("claim_work", TARGET, cid=r["id"]) for r in records]
+    assert {(r.state, r.curation_id) for r in reconcile(entries, records)} == {
+        ("pending", "cur-hCE9CwDwyTFu"),
+        ("pending", "cur-YNLF3QKkzQEV"),
+    }
+
+
+def test_rows_already_submitted_are_kept_but_not_selected():
+    from oacurate.journal import mark_submitted
+    from oacurate.model import Action
+
+    def claim(raw):
+        return Action(
+            kind="claim_work",
+            entity_id=W,
+            value=TARGET,
+            raw_author_name=raw,
+            status="claim",
+            decision="apply",
+        )
+
+    sent, other = claim("Jane Doe"), claim("J. Doe")
+    entries = [
+        JournalEntry(
+            ts_utc="2026-10-13T10:00:00Z",
+            action_id=sent.id,
+            kind="claim_work",
+            payload={},
+            outcome="duplicate",
+            curation_id="cur-1",
+        ),
+        JournalEntry(
+            ts_utc="2026-10-13T10:00:00Z",
+            action_id=other.id,
+            kind="claim_work",
+            payload={},
+            outcome="rejected",
+        ),
+    ]
+    marked = mark_submitted([sent, other], entries)
+    assert [(a.id, a.status, a.decision) for a in marked] == [
+        (sent.id, "claim", "skip"),
+        (other.id, "claim", "apply"),
+    ]
+    assert marked[0].reasons == ["already-submitted:cur-1"]
+
+
+def test_pending_rows_carry_the_server_check_error():
+    entries = [entry("claim_work", TARGET, cid="cur-1")]
+    records = [
+        {
+            "id": "cur-1",
+            "is_applied": False,
+            "last_check_error": "raw_author_name not found",
+            "superseded_by": None,
+        }
+    ]
+    [row] = reconcile(entries, records)
+    assert (row.state, row.note) == ("pending", "raw_author_name not found")

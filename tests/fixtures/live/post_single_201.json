@@ -1,0 +1,32 @@
+{
+ "_note": "recorded 13/10/2026 from a real submission (journal raw reply); personal fields redacted",
+ "status": 201,
+ "payload": {
+  "action": "replace",
+  "entity": "works",
+  "entity_id": "https://openalex.org/W7113065857",
+  "property": "authorships[raw_author_name=\"Ballarin, Emanuele\"].author.id",
+  "value": "https://openalex.org/A5122991001"
+ },
+ "body": {
+  "action": "replace",
+  "applied_at": null,
+  "check_count": 0,
+  "created": "2026-10-13T15:00:51.837352Z",
+  "entity": "works",
+  "entity_id": "https://openalex.org/W7113065857",
+  "id": "cur-hCE9CwDwyTFu",
+  "is_applied": false,
+  "last_check_error": null,
+  "last_checked_at": null,
+  "last_observed": null,
+  "next_check_at": null,
+  "previous_value": null,
+  "property": "authorships[raw_author_name=\"Ballarin, Emanuele\"].author.id",
+  "status": "pending",
+  "superseded_by": null,
+  "user_id": "<redacted>",
+  "user_name": "<redacted>",
+  "value": "https://openalex.org/A5122991001"
+ }
+}

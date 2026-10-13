@@ -5,7 +5,7 @@ import math
 import time
 from collections.abc import Callable, Iterator, Mapping, Sequence
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 from typing import Any
 
 import httpx
@@ -23,7 +23,7 @@ from oacurate.errors import (
     Unauthorized,
 )
 from oacurate.ids import doi_path, normalise_doi, normalise_openalex_id, orcid_bare, short_id
-from oacurate.model import ItemOutcome
+from oacurate.model import ItemOutcome, parse_iso_utc
 
 log = logging.getLogger("oacurate.http")
 
@@ -37,6 +37,7 @@ MAX_URL_BYTES = 3500
 BACKOFF_SECONDS = (1, 2, 4, 8, 16)
 MAX_RATE_RETRIES = 3
 MAX_RETRY_AFTER = 60
+DUPLICATE_SLACK = timedelta(minutes=2)
 
 _RECORD_KEYS = ("entity", "entity_id", "property", "action", "value")
 _LIST_KEYS = ("results", "items", "data", "curations", "responses")
@@ -466,10 +467,13 @@ class OpenAlexClient:
         single = isinstance(items, Mapping)
         payloads = [dict(items)] if single else [dict(i) for i in items]
         body = payloads[0] if single else payloads
+        sent_at = datetime.now(UTC)
         resp = self._send("POST", self.user_base, "/curations", json_body=body)
         if resp.status_code in (401, 403):
             self._raise_for_status(resp)
-        return parse_post_response(resp.status_code, _json_or_none(resp), payloads, single=single)
+        return parse_post_response(
+            resp.status_code, _json_or_none(resp), payloads, single=single, sent_at=sent_at
+        )
 
 
 # ---------------------------------------------------------------------- response parsing
@@ -506,12 +510,33 @@ def _item_record(item: Mapping[str, Any]) -> Any:
     return None
 
 
-def _outcome(status: int | None, record: Any, payload: Mapping[str, Any], raw: Any) -> ItemOutcome:
-    """Classify one item; anything not positively recognised is ``unknown``."""
+def _created_before(record: Mapping[str, Any], sent_at: datetime | None) -> bool:
+    """Tell whether a returned row predates the submission: the server re-sent an old row."""
+    if sent_at is None or not isinstance(record.get("created"), str):
+        return False
+    try:
+        return parse_iso_utc(record["created"]) < sent_at - DUPLICATE_SLACK
+    except ValueError:
+        return False
+
+
+def _outcome(
+    status: int | None,
+    record: Any,
+    payload: Mapping[str, Any],
+    raw: Any,
+    sent_at: datetime | None = None,
+) -> ItemOutcome:
+    """Classify one item; anything not positively recognised is ``unknown``.
+
+    The server answers ``201`` with the existing row for a re-submitted curation, so a row
+    created well before ``sent_at`` is a duplicate.
+    """
     if status in (200, 201) and record_matches(record, payload):
+        duplicate = status == 200 or _created_before(record, sent_at)
         return ItemOutcome(
             http_status=status,
-            outcome="created" if status == 201 else "duplicate",
+            outcome="duplicate" if duplicate else "created",
             curation_id=record["id"],
             message="",
             raw=raw,
@@ -532,17 +557,23 @@ def _outcome(status: int | None, record: Any, payload: Mapping[str, Any], raw: A
 
 
 def parse_post_response(
-    status: int, body: Any, payloads: Sequence[Mapping[str, Any]], *, single: bool
+    status: int,
+    body: Any,
+    payloads: Sequence[Mapping[str, Any]],
+    *,
+    single: bool,
+    sent_at: datetime | None = None,
 ) -> list[ItemOutcome]:
     """Turn a ``POST /curations`` response into one outcome per submitted payload.
 
-    The ``207`` item shape is unverified (Milestone 0, U2): only entries carrying an
-    explicit per-item status and, for successes, a curation row echoing the payload are
-    classified; everything else is ``unknown``, never success.
+    Verified live (13/10/2026): a single object answers with the row itself, a ``207`` with
+    ``{"index", "status", "curation"}`` per item. Only entries with an explicit per-item
+    status and, for successes, a row echoing the payload are classified; everything else is
+    ``unknown``, never success.
     """
     if single:
         if status in (200, 201, 400):
-            return [_outcome(status, body, payloads[0], body)]
+            return [_outcome(status, body, payloads[0], body, sent_at)]
         raise ApiError(f"POST /curations -> {status}: {_message(body)}", status=status, body=body)
     if status != 207:
         raise ApiError(f"POST /curations -> {status}: {_message(body)}", status=status, body=body)
@@ -558,5 +589,5 @@ def parse_post_response(
         if not isinstance(entry, dict):
             out.append(ItemOutcome(None, "unknown", None, "unrecognised 207 item", entry))
             continue
-        out.append(_outcome(_item_status(entry), _item_record(entry), payload, entry))
+        out.append(_outcome(_item_status(entry), _item_record(entry), payload, entry, sent_at))
     return out

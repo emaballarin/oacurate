@@ -5,12 +5,11 @@ API: set or detach its ORCID, set its display and match names, attach works from
 work IDs or BibTeX (Google Scholar exports included), detach works that are not yours, audit the
 profile, and track or revert what you submitted.
 
-**Status: 0.1.0.** All commands are implemented and covered by an offline test suite against
-mocked HTTP. The read-only Milestone 0 probes have been run against the live API (U1, U4–U6 in
-[`docs/api-notes.md`](docs/api-notes.md)). Not yet done: submitting a curation live, a dry run on
-a real Scholar export, and a live audit. The shape of a curation row and of a `207` batch reply
-are still unverified (U2); until they are, any reply the tool cannot positively recognise is
-recorded as `unknown`, never as success.
+**Status: 0.2.0.** All commands are implemented and covered by an offline test suite against
+mocked HTTP. Against the live API: the Milestone 0 probes are done and the first real curations
+(two claims) were accepted and reconciled by `pending` (see [`docs/api-notes.md`](docs/api-notes.md)).
+Not yet done: a dry run on a real Scholar export and a live audit. Any reply the tool cannot
+positively recognise is recorded as `unknown`, never as success.
 
 ## Install
 
@@ -75,6 +74,8 @@ oacurate revert --since 13/10/2026 -o undo.json     # inverse plan, applied like
 - **Canary.** The first item is sent alone; a `401`/`403` aborts everything.
 - **Daily cap.** Claims are capped at 1,000 per rolling 24 h (OpenAlex's limit for profile
   owners); the journal counts what was already sent and the rest is left for later.
+- **No silent re-sends.** A plan row whose identical curation the journal already records as
+  submitted is kept but deselected (reason `already-submitted:<curation id>`); `--accept` overrides.
 - **Journal.** Every submitted item is appended to
   `$XDG_DATA_HOME/oacurate/<author>.jsonl` (default `~/.local/share/oacurate/`), flushed and
   fsynced as soon as its reply arrives. `pending` reconciles it with the server; `revert` builds

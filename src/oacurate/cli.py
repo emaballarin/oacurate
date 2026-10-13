@@ -39,6 +39,7 @@ from oacurate.journal import (
     claims_in_window,
     default_journal_path,
     fetch_curations,
+    mark_submitted,
     now_utc,
     reconcile,
     select_for_revert,
@@ -409,6 +410,16 @@ def owner_lookup(client: OpenAlexClient) -> Callable[[str], AuthorView | None]:
     return lookup
 
 
+def _deselect_submitted(rt: Runtime, actions: Sequence[Action]) -> list[Action]:
+    """Keep rows already submitted per the journal, but leave them out of the default selection."""
+    entries, _ = rt.journal.read()
+    marked = mark_submitted(actions, entries)
+    n = sum(1 for a, b in zip(actions, marked, strict=True) if a.decision != b.decision)
+    if n:
+        _err(f"{n} rows were already submitted (see `pending`); they are not selected by default")
+    return marked
+
+
 def require_output(path: str) -> str:
     """Insist on ``-o PLAN``."""
     if not path:
@@ -748,6 +759,7 @@ def cmd_plan_add(a: PlanAdd) -> int:
             resolved += more
             unresolved += still
         actions, failed = add_actions(rt.client, resolved, ctx)
+        actions = _deselect_submitted(rt, actions)
         plan = Plan(
             author_id=author.id,
             author_display_name=author.display_name,
@@ -776,6 +788,7 @@ def cmd_plan_remove(a: PlanRemove) -> int:
         ctx = make_context(rt, author, (), "", force=a.force)
         resolved, _, missing = resolve_identifiers(rt.client, records)
         actions, failed = remove_actions(rt.client, resolved, ctx)
+        actions = _deselect_submitted(rt, actions)
         plan = Plan(
             author_id=author.id,
             author_display_name=author.display_name,
@@ -865,7 +878,7 @@ def cmd_audit(a: Audit) -> int:
             author_id=author.id,
             author_display_name=author.display_name,
             seeds=list(ctx.seeds.names),
-            actions=result.actions,
+            actions=_deselect_submitted(rt, result.actions),
             warnings=result.warnings,
             credits_used=rt.client.credits_used,
         ).sorted()
@@ -895,6 +908,7 @@ PENDING_COLUMNS = (
     Column("since", "since"),
     Column("age", "age"),
     Column("applied_at", "applied"),
+    Column("note", "server note", 50),
 )
 
 
@@ -919,6 +933,7 @@ def cmd_pending(a: Pending) -> int:
                 "since": format_local(r.since),
                 "age": format_age((now - r.since).total_seconds()) if r.since else None,
                 "applied_at": format_local(r.applied_at),
+                "note": r.note or None,
             }
             for r in rows
         ]

@@ -379,3 +379,23 @@ def test_a_json_apply_report_is_one_json_document(api, tmp_path, capsys):
     doc = json.loads(capsys.readouterr().out)
     assert doc["counts"]["created"] == 1 and doc["results"][0]["curation"] == "cur-9"
     assert (doc["unsent"], doc["leftover"], doc["exit_code"]) == ([], [], 0)
+
+
+def test_a_second_plan_does_not_reselect_what_was_already_submitted(api, tmp_path, capsys):
+    plan = tmp_path / "plan.json"
+    assert cli.main(["plan", "add", "--doi", "10.1000/paper", "-o", str(plan)]) == 0
+    api.post_handler = lambda r: json_response(
+        201, {"id": "cur-9", **json.loads(r.content)}, credits=None
+    )
+    assert cli.main(["apply", str(plan), "--yes"]) == 0
+    again = tmp_path / "again.json"
+    assert cli.main(["plan", "add", "--doi", "10.1000/paper", "-o", str(again)]) == 0
+    [row] = json.loads(again.read_text())["actions"]
+    assert (row["status"], row["decision"], row["reasons"]) == (
+        "claim",
+        "skip",
+        ["already-submitted:cur-9"],
+    )
+    capsys.readouterr()
+    assert cli.main(["apply", str(again), "--format", "json"]) == 0
+    assert json.loads(capsys.readouterr().out) == []

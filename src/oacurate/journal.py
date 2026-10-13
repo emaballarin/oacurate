@@ -3,7 +3,7 @@
 import json
 import os
 from collections.abc import Callable, Iterable, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -116,6 +116,31 @@ class PendingRow:
     value: str
     since: datetime | None
     applied_at: datetime | None
+    note: str = ""
+
+
+def _server_note(rec: dict[str, Any]) -> str:
+    """The server's own remark on a curation: its last check error or what superseded it."""
+    if rec.get("last_check_error"):
+        return str(rec["last_check_error"])
+    if rec.get("superseded_by"):
+        return f"superseded by {rec['superseded_by']}"
+    return ""
+
+
+def mark_submitted(actions: Iterable[Action], entries: Iterable[JournalEntry]) -> list[Action]:
+    """Keep rows whose identical action was already submitted successfully, but deselect them."""
+    done: dict[str, str] = {}
+    for e in entries:
+        if e.outcome in SUCCESS and e.curation_id and e.kind in ("claim_work", "remove_work"):
+            done.setdefault(e.action_id, e.curation_id)
+    out = []
+    for a in actions:
+        cid = done.get(a.id)
+        if cid and a.status in ("claim", "remove"):
+            a = replace(a, decision="skip", reasons=[*a.reasons, f"already-submitted:{cid}"])
+        out.append(a)
+    return out
 
 
 def _when(value: Any) -> datetime | None:
@@ -158,6 +183,7 @@ def reconcile(
             continue
         seen.add(e.curation_id)
         rec = by_id.get(e.curation_id)
+        note = _server_note(rec) if rec else ""
         if not server_known:
             state, since, applied = "unverified", journalled, None
         elif rec is None:
@@ -165,7 +191,7 @@ def reconcile(
         else:
             state = "applied" if rec.get("is_applied") else "pending"
             since, applied = _when(rec.get("created")) or journalled, _when(rec.get("applied_at"))
-        rows.append(PendingRow(state, e.curation_id, e.kind, entity, value, since, applied))
+        rows.append(PendingRow(state, e.curation_id, e.kind, entity, value, since, applied, note))
     for rec in records:
         if rec["id"] in seen:
             continue
@@ -179,6 +205,7 @@ def reconcile(
                 str(rec.get("value", "")),
                 _when(rec.get("created")),
                 _when(rec.get("applied_at")),
+                _server_note(rec),
             )
         )
     return rows

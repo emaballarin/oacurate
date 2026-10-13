@@ -1,0 +1,57 @@
+{
+ "_note": "GET /curations recorded 13/10/2026 with two pending claims; personal fields redacted",
+ "body": {
+  "meta": {
+   "count": 2,
+   "page": 1,
+   "per_page": 25,
+   "total_count": 2,
+   "total_count_capped": false,
+   "total_pages": 1
+  },
+  "results": [
+   {
+    "action": "replace",
+    "applied_at": null,
+    "check_count": 0,
+    "created": "2026-10-13T15:00:52.354253Z",
+    "entity": "works",
+    "entity_id": "https://openalex.org/W7112165090",
+    "id": "cur-YNLF3QKkzQEV",
+    "is_applied": false,
+    "last_check_error": null,
+    "last_checked_at": null,
+    "last_observed": null,
+    "next_check_at": null,
+    "previous_value": null,
+    "property": "authorships[raw_author_name=\"Emanuele ballarin\"].author.id",
+    "status": "pending",
+    "superseded_by": null,
+    "user_id": "<redacted>",
+    "user_name": "<redacted>",
+    "value": "https://openalex.org/A5122991001"
+   },
+   {
+    "action": "replace",
+    "applied_at": null,
+    "check_count": 0,
+    "created": "2026-10-13T15:00:51.837352Z",
+    "entity": "works",
+    "entity_id": "https://openalex.org/W7113065857",
+    "id": "cur-hCE9CwDwyTFu",
+    "is_applied": false,
+    "last_check_error": null,
+    "last_checked_at": null,
+    "last_observed": null,
+    "next_check_at": null,
+    "previous_value": null,
+    "property": "authorships[raw_author_name=\"Ballarin, Emanuele\"].author.id",
+    "status": "pending",
+    "superseded_by": null,
+    "user_id": "<redacted>",
+    "user_name": "<redacted>",
+    "value": "https://openalex.org/A5122991001"
+   }
+  ]
+ }
+}

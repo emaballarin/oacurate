@@ -1,6 +1,6 @@
 [project]
 name = "oacurate"
-version = "0.1.0"
+version = "0.2.0"
 description = "Curate your own OpenAlex author profile through the official curation API"
 readme = "README.md"
 license = "MIT"
