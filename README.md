@@ -14,7 +14,8 @@ recorded as `unknown`, never as success.
 
 ## Install
 
-Requires Python ≥ 3.14.
+Requires Python 3.14. Python 3.15 is excluded for now: `simple-parsing` 0.1.9, the latest
+release, fails to import there.
 
 ```fish
 uv tool install git+https://github.com/emaballarin/oacurate   # or, from a checkout: uv tool install .

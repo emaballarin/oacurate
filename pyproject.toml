@@ -6,7 +6,9 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Emanuele Ballarin", email = "emanuele@ballarin.cc" }]
-requires-python = ">=3.14"
+# simple-parsing 0.1.9 imports dataclasses._MISSING_TYPE, which Python 3.15 removed (MISSING is now
+# a sentinel); lift the cap once a simple-parsing release supports 3.15.
+requires-python = ">=3.14,<3.15"
 dependencies = [
     "bibtexparser>=2.1,<3",
     "httpx>=0.28,<1",
