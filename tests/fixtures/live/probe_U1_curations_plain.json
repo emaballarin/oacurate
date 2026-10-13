@@ -1,0 +1,19 @@
+{
+ "probed_utc": "2026-10-13T14:24:35Z",
+ "request": "GET https://user.openalex.org/curations",
+ "status": 200,
+ "headers": {
+  "Content-Type": "application/json"
+ },
+ "body": {
+  "meta": {
+   "count": 0,
+   "page": 1,
+   "per_page": 25,
+   "total_count": 0,
+   "total_count_capped": false,
+   "total_pages": 1
+  },
+  "results": []
+ }
+}

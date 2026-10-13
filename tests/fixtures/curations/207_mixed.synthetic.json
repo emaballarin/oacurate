@@ -1,0 +1,9 @@
+{
+ "_synthetic": "U2 is unsettled: this is an assumed 207 shape (per-item status plus the curation row), not a recorded response",
+ "results": [
+  {"status": 201, "data": {"id": "cur-0001", "user_id": "u-1", "user_name": "Test User", "entity": "works", "entity_id": "https://openalex.org/W1", "property": "authorships[raw_author_name=\"Jane Doe\"].author.id", "value": "https://openalex.org/A9", "action": "replace", "created": "2026-10-13T10:00:00Z", "is_applied": false, "applied_at": null}},
+  {"status": 200, "data": {"id": "cur-0002", "user_id": "u-1", "user_name": "Test User", "entity": "works", "entity_id": "https://openalex.org/W2", "property": "authorships[raw_author_name=\"Jane Doe\"].author.id", "value": "https://openalex.org/A9", "action": "replace", "created": "2026-10-01T10:00:00Z", "is_applied": true, "applied_at": "2026-10-02T03:00:00Z"}},
+  {"status": 400, "message": "raw_author_name not found on work"},
+  {"weird": "shape"}
+ ]
+}

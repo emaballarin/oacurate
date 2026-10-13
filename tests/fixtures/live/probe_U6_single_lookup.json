@@ -1,0 +1,16 @@
+{
+ "probed_utc": "2026-10-13T14:24:38Z",
+ "request": "GET https://api.openalex.org/works/doi:10.5281/zenodo.15521699?select=id",
+ "status": 200,
+ "headers": {
+  "X-RateLimit-Limit": "10000",
+  "X-RateLimit-Remaining": "9949",
+  "X-RateLimit-Credits-Used": "0",
+  "X-RateLimit-Reset": "34522",
+  "X-RateLimit-Cost-USD": "0",
+  "Content-Type": "application/json"
+ },
+ "body": {
+  "id": "https://openalex.org/W6893254818"
+ }
+}

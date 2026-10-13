@@ -1,0 +1,45 @@
+{
+ "probed_utc": "2026-10-13T14:24:38Z",
+ "request": "GET https://api.openalex.org/works?corpus=expansion&filter=has_doi%3Atrue&per_page=1&select=id%2Cdoi",
+ "status": 200,
+ "headers": {
+  "X-RateLimit-Limit": "10000",
+  "X-RateLimit-Remaining": "9949",
+  "X-RateLimit-Credits-Used": "1",
+  "X-RateLimit-Reset": "34522",
+  "X-RateLimit-Cost-USD": "0.0001",
+  "Content-Type": "application/json"
+ },
+ "body": {
+  "meta": {
+   "count": 87162454,
+   "db_response_time_ms": 132,
+   "page": 1,
+   "per_page": 1,
+   "groups_count": null,
+   "x_query": {
+    "oql": "get works (expansion corpus) where it has a DOI",
+    "x_new_oql": "get works (expansion corpus) where it has a DOI",
+    "oqo": {
+     "get_rows": "works",
+     "corpus": "expansion",
+     "filter_rows": [
+      {
+       "column_id": "has_doi",
+       "value": true
+      }
+     ]
+    },
+    "url": "/works?filter=has_doi:true&corpus=expansion&per_page=1"
+   },
+   "cost_usd": 0.0001
+  },
+  "results": [
+   {
+    "id": "https://openalex.org/W6893254818",
+    "doi": "https://doi.org/10.5281/zenodo.15521699"
+   }
+  ],
+  "group_by": []
+ }
+}
